@@ -1,0 +1,96 @@
+How to do things:
+
+extract tar files:
+    tar -xvzf filename (eXtract Zee Files)
+
+ssh into CAEN:
+    ssh onc (oncampus)
+    ssh ofc (offcampus)
+
+set up git:
+    git init
+    check: git status
+    git add <fileName> <. adds all>
+    git commit -m "enter commit message here"
+    push to cloud:
+        git remote add origin https://gitlab.eecs.umich.edu/sletap/projectName.git
+        git remote -v (for a check if needed)
+        git push -u origin master (for the first time)
+        git push (for the rest is fine)
+    Guide: https://eecs280staff.github.io/p1-stats/setup_git.html
+
+Run an electron app in WSL:
+        go to cmd.exe
+        go to the directory you need to work from
+        npm install electron --save-dev
+        (to uninstall electron from a directory, use npm uninstall electron)
+        then npm start, and it should start the application through windows
+
+Run a command in powershell through WSL:
+        cmd.exe /c <insert command here>
+        cmd.exe /c python GUI.py
+
+Open cwd in WSL:
+    opendir
+
+Python venving:
+        python3 -m venv env
+        . env/bin/activate
+        now you can pip install --user thing
+        "deactivate" to exit venv
+
+Run a GUI application in bash:
+        make sure xming is running
+        export DISPLAY=:0
+        run graphical application, such as gvim
+        # I wrote a script for this, type exportDisplay
+
+create a bash script:
+        # This is a comment
+        type whatever the command needs to do
+        chmod +x yourScript #this gives the script permissions
+        sudo cp yourScript /usr/bin/ #Script needs to go here
+        # sometimes it's hard...
+
+rename a file:
+    mv oldName newName
+
+debug C++ in VS Code:
+        Copy and paste the following, changing program and cwd, and args IF NEEDED
+
+        {
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/mnt/c/Users/Sahil/Google Drive/Schoolwork/csProjects/c++/eecs281/summer/PHDS",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/mnt/c/Users/Sahil/Google Drive/Schoolwork/csProjects/c++/eecs281/summer",
+            "environment": [],
+            "externalConsole": true,
+            "windows": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "pipeTransport": {
+                "pipeCwd": "",
+                "pipeProgram": "c:\\windows\\sysnative\\bash.exe",
+                "pipeArgs": ["-c"],
+                "debuggerPath": "/usr/bin/gdb"
+            },
+            "sourceFileMap": {
+                "/mnt/c": "c:\\"
+            }
+        }
+    ]
+}
