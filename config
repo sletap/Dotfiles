@@ -1,0 +1,9 @@
+#oncampus caen
+Host onc
+    HostName oncampus-course.engin.umich.edu
+    User sletap
+
+#offCampus ssh
+Host ofc
+    HostName login-course.engin.umich.edu
+    User sletap
